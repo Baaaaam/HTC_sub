@@ -7,7 +7,7 @@ fi
 
 if [ "$2" -eq "$2" ]; then
   if [ $1 = "cloudlus" ]; then
-    bin=cloudlus/cloudlus.sub
+    bin=/home/mouginot/HTC_sub/cloudlus/cloudlus.sub
   else
     echo "Bad program name!!"
     exit 1
