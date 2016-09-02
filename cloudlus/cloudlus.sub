@@ -20,7 +20,7 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 # Indicate the executable to be run and any other input files needed
-executable = cloudlus_worker.bash
+executable = /home/mouginot/HTC_sub/cloudlus/cloudlus_worker.bash
 transfer_input_files = /home/mouginot/HTC_sub/cloudlus/cloudlus_worker.bash, /home/mouginot/condorht_tools/setup/build.bash, /home/mouginot/condorht_tools/setup/build_funcs.bash, /home/mouginot/condorht_tools/setup/common.bash
 
 # Command line arguments for the executable
