@@ -2,8 +2,9 @@
 universe = vanilla
 
 # Files to place stdout and stderr
-output = process_$(Cluster)_$(Process).out
-error = process_$(Cluster)_$(Process).err
+output = /home/mouginot/cloudlus_sub/process_$(Cluster)_$(Process).out
+error  = /home/mouginot/cloudlus_sub/process_$(Cluster)_$(Process).err
+
 
 # Job status log
 log = process_$(Cluster)_$(Process).log
@@ -23,6 +24,10 @@ when_to_transfer_output = ON_EXIT
 executable = /home/mouginot/HTC_sub/cloudlus/cloudlus_worker.bash
 transfer_input_files = /home/mouginot/HTC_sub/cloudlus/cloudlus_worker.bash, /home/mouginot/condorht_tools/setup/build.bash, /home/mouginot/condorht_tools/setup/build_funcs.bash, /home/mouginot/condorht_tools/setup/common.bash
 
+
+#InitialDir = /home/mouginot/cloudlus_sub/$(Process)/
+#output_destination
+
 # Command line arguments for the executable
 arguments =
 
@@ -34,4 +39,3 @@ request_cpus = 1
 request_memory = 4GB
 request_disk = 32GB
 
-queue

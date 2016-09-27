@@ -17,7 +17,4 @@ else
   exit 1
 fi
 
-for (( c=1; c<=${2}; c++ ))
-do
-   condor_submit ${bin}
-done
+condor_submit ${bin} -queue ${2}

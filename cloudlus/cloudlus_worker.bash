@@ -32,4 +32,4 @@ for name in "${packages[@]}"; do
   ensure_build $name $version
 done
 
-cloudlus -addr dory.fuelcycle.org:3030 work -interval 3s -whitelist cyclus cyan
+cloudlus -addr dory.fuelcycle.org:3030 work -interval 3s -maxidle 10m -whitelist cyclus cyan
