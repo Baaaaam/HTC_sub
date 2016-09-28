@@ -35,7 +35,7 @@ arguments =
 notification = never
 
 # Request resources
-request_cpus = 1
-request_memory = 4GB
-request_disk = 32GB
+request_cpus = 16
+request_memory = 8GB
+request_disk = 10GB
 
