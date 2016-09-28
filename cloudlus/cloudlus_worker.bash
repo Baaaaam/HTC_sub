@@ -25,11 +25,11 @@ for name in "${packages[@]}"; do
 done
 
 # recover cyclus cycamore and HTC tool
-packages=(cyclus HTC)
+packages=(cyclus HTC_tool)
 for name in "${packages[@]}"; do
   eval version=\$"$name"_version
   echo Ensuring build of $name-$version ...
   ensure_build $name $version
 done
 
-cloudlus -addr dory.fuelcycle.org:3030 work -interval 3s -maxidle 10m -whitelist cyclus cyan
+cloudlus -addr dory.fuelcycle.org:3030 work -interval 3s -maxidle 1m -whitelist cyclus cyan
