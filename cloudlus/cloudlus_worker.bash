@@ -4,6 +4,8 @@ set -e
 export args="$@"
 export args=" "$args" "
 
+export home=`pwd`
+
 source ./common.bash
 source ./build_funcs.bash
 set_dirs
@@ -17,19 +19,19 @@ rm -rf $build_dir $install_dir
 mkdir -p $dist_dir $build_dir $install_dir $copy_dir $DATAPATH
 
 # Make sure all the dependencies are built
-packages=(python gcc mpc mpfr gmp hdf5 boost Cbc sigcpp sqlite xml2 pcre glib glibmm xmlpp)
+packages=(python gcc mpc mpfr gmp hdf5 boost Cbc sigcpp sqlite xml2 pcre glib glibmm xmlpp cyclus HTC_tool)
 for name in "${packages[@]}"; do
   eval version=\$"$name"_version
   echo Ensuring build of $name-$version ...
   ensure_build $name $version
 done
 
-# recover cyclus cycamore and HTC tool
-packages=(cyclus HTC_tool)
-for name in "${packages[@]}"; do
-  eval version=\$"$name"_version
-  echo Ensuring build of $name-$version ...
-  ensure_build $name $version
-done
+cd $home
+
+source ./common.bash
+source ./build_funcs.bash
+set_dirs
+set_versions
+set_env
 
 cloudlus -addr dory.fuelcycle.org:3030 work -interval=3s -maxidle=5m -whitelist=cyclus,cyan,cycobj
