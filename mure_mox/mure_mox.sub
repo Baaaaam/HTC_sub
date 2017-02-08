@@ -2,14 +2,15 @@
 universe = vanilla
 
 # Files to place stdout and stderr
-output = /home/mouginot/cloudlus_sub/process_$(Cluster)_$(Process).out
-error  = /home/mouginot/cloudlus_sub/process_$(Cluster)_$(Process).err
+output = process_$(Cluster)_$(Process).out
+error  = process_$(Cluster)_$(Process).err
 
 
 # Job status log
 log = process_$(Cluster)_$(Process).log
 
 # Indicate this is a build job
+#+IsBuildJob = true
 requirements = (Target.HasGluster == true) && (OpSysAndVer =?= "SL6")
 
 # Copy environment variables from the submit node
@@ -21,8 +22,8 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 # Indicate the executable to be run and any other input files needed
-executable = /home/mouginot/HTC_sub/mure_mox/mure_mox.bash
-transfer_input_files = /home/mouginot/HTC_sub/cloudlus/cloudlus_worker.bash, /home/mouginot/condorht_tools/setup/build.bash, /home/mouginot/condorht_tools/setup/build_funcs.bash, /home/mouginot/condorht_tools/setup/common.bash
+executable = mure_mox.bash
+transfer_input_files = build.bash, build_funcs.bash, common.bash
 
 
 #InitialDir = /home/mouginot/cloudlus_sub/$(Process)/
@@ -37,5 +38,5 @@ notification = never
 # Request resources
 request_cpus = 1
 request_memory = 1GB
-request_disk = 1GB
+request_disk = 10GB
 
