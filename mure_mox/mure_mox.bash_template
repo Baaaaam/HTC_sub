@@ -31,4 +31,4 @@ cp -rv /mnt/gluster/mouginot/TRU_MOX_SOFT/*.* .
 g++  -o MOX MOX.cc -I$MURE_include -I$MURE_ExternalPkg -L$MURE_lib -lMUREpkg -lvalerr -lmctal -fopenmp
 chmod 755 MOX
 ./MOX MOX_PARAMETER
-cp -vr U5* /mnt/gluster/mouginot/TRU_MOX_CAL/
+cp -vr U5* /mnt/gluster/mouginot/TRU_MOX_TEST/
